@@ -106,7 +106,7 @@ demo_data
 - ```MNI```: Nx3 double array of three dimensional channel coordinates
 - ```spike_gamma_rates```: Nx6 double array of IED-gamma rates computed for each channel in six segments of the one hour interictal data 
 
-## Implementing the spatial perturbation framework on your own data
+## Running the SP framework on your own data
 
 ## Reproducing results
 
