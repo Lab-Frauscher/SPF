@@ -14,6 +14,8 @@
 .
 ├── LICENSE
 ├── README.md
+├── analysis
+│   └── feature_selection.m
 ├── demo_data
 │   ├── P4_sample.mat
 │   ├── P58_sample.mat
@@ -24,12 +26,14 @@
 │   └── vSP_output_P4.png
 ├── functions
 │   ├── boxplot_gramm.m
+│   ├── dunns.m
 │   ├── plotFeatureSpace.m
 │   ├── scatter_gramm.m
 │   └── sphereIntersection.m
 ├── perturbation
 │   ├── computeCorrelation.m
 │   ├── computeSPMap.m
+│   ├── train_kmeans.m
 │   └── virtualRemovalSP.m
 ├── rSP_demo.m
 ├── results_figures
@@ -39,6 +43,7 @@
 │   ├── figure8_9_covariate_analysis.m
 │   └── sp_results
 │       ├── SPMap_features.mat
+│       ├── sp_maps.mat
 │       └── virtual_removal_perturbation.mat
 ├── results_pipeline.m
 ├── spike_gamma_code
@@ -100,6 +105,8 @@ demo_data
 - ```extraCerebral```: Mx1 string array of extracerebral channels
 - ```MNI```: Nx3 double array of three dimensional channel coordinates
 - ```spike_gamma_rates```: Nx6 double array of IED-gamma rates computed for each channel in six segments of the one hour interictal data 
+
+## Implementing the spatial perturbation framework on your own data
 
 ## Reproducing results
 
