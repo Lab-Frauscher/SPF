@@ -1,0 +1,161 @@
+# Spatial-Perturbation-Framework
+
+## Table of Contents
+  * [Folders](#folders)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+  * [Expected runtime](#expected-runtime)
+  * [Getting started](#getting-started)
+  * [Reproducing results](#reproducing-results)
+  * [Expected output](#expected-output)
+
+## Folders
+```bash
+.
+├── LICENSE
+├── README.md
+├── demo_data
+│   ├── P4_sample.mat
+│   ├── P58_sample.mat
+│   └── patient_data.mat
+├── figures
+│   ├── rSP_output_P4.png
+│   ├── rSP_output_P58.png
+│   └── vSP_output_P4.png
+├── functions
+│   ├── boxplot_gramm.m
+│   ├── plotFeatureSpace.m
+│   ├── scatter_gramm.m
+│   └── sphereIntersection.m
+├── perturbation
+│   ├── computeCorrelation.m
+│   ├── computeSPMap.m
+│   └── virtualRemovalSP.m
+├── rSP_demo.m
+├── results_figures
+│   ├── figure3_4_perturbation_analysis.m
+│   ├── figure6_sp_map_examples.m
+│   ├── figure7_cluster_analysis.m
+│   ├── figure8_9_covariate_analysis.m
+│   └── sp_results
+│       ├── SPMap_features.mat
+│       └── virtual_removal_perturbation.mat
+├── results_pipeline.m
+├── spike_gamma_code
+│   ├── computeSpikeGamma.m
+│   ├── compute_gamma.m
+│   ├── compute_spike_boundary.m
+│   ├── postprocessing_v2.m
+│   └── spike_detector_hilbert_v25.m
+└── vSP_demo.m
+```
+
+## Prerequisites
+- MATLAB R2023a or higher
+- The following MATLAB add-ons need to be installed:
+    - 'Curve Fitting Toolbox'
+    - 'Image Processing Toolbox'
+    - 'Signal Processing Toolbox'
+    - 'Statistics and Machine Learning Toolbox'
+    - 'Wavelet Toolbox'
+    - 'gramm': https://github.com/piermorel/gramm
+- Windows, macOS, or Linux operating system
+
+## Installation
+Download the repository into your local computer using the following command  
+```bash 
+git clone https://github.com/KassemJaber/Spatial-Perturbation-Framework.git
+```
+Typical install time: 2 hours
+
+## Expected runtime
+Time to run ```vSP_demo.m```: 21.774976 seconds  
+Time to run ```rSP_demo.m```: 22.131166 seconds
+
+
+## Getting started
+Set MATLAB workspace to repository folder, and get started by running the demo scripts on the sample data
+
+```vSP_demo.m ```  
+```rSP_demo.m ```  
+
+Which provides an example of the complete end-to-end pipeline from the SEEG to the final result. The demo scripts will use five-minute SEEG data of two patients sampled from our MNI dataset. They have been downsampled to 200Hz to reduce file size so that it meets the file size limitations of GitHub. These samples can be found in the following subdirectory
+```bash
+demo_data
+├── P4_sample.mat
+├── P58_sample.mat
+└── patient_data.mat
+```
+```patient_data.mat``` is a MATLAB struct with the variable name ```patient``` containing the following fields  
+- Patient index
+- ```channel_name```: Nx1 string array of channel labels
+- ```sampling_freq```: 1x1 double containing the sampling frequency (in Hz)
+- ```soz_ez```: Nx4 cell array
+	- Column 1: Channel labels
+   	- Column 2: 0: non-SOZ, 1: SOZ, 10: extracerebral, 30: marked as artifact
+	- Column 3: 0: non-Resected, 1: resected, 10: extracerebral, 30: marked as artifact
+	- Column 4: 0: non-SOZ and not resected, 1: SOZ and resected, 10: extracerebral, 30: marked as artifact
+- ```engel```: 1x1 string with the surgical outcome of the patient
+- ```channelRegions```: Nx1 string array of channel regions defined in the MICCAI atlas
+- ```extraCerebral```: Mx1 string array of extracerebral channels
+- ```MNI```: Nx3 double array of three dimensional channel coordinates
+- ```spike_gamma_rates```: Nx6 double array of IED-gamma rates computed for each channel in six segments of the one hour interictal data 
+
+## Reproducing results
+
+```results_pipeline.m``` runs all the scripts to produce all the results in the manuscript.
+The scripts to reproduce the result figures in the manuscript can be found in the following directory
+
+```bash
+results_figures
+├── figure3_4_perturbation_analysis.m
+├── figure6_sp_map_examples.m
+├── figure7_cluster_analysis.m
+├── figure8_9_covariate_analysis.m
+└── sp_results
+    ├── SPMap_features.mat
+    └── virtual_removal_perturbation.mat
+```
+
+The folder **sp_results** contains the results of the framework applied  on all the patients in our dataset  
+- ```virtual_removal_perturbation.mat``` contains the results of virtual removal SP framework.  
+    - ```data_sf```: 76x6 cell array containing the following data for all patients  
+        1. Patient index (e.g., P4)
+        2. MRI positive/negative
+        3. $\bar{\rho}_{BR,i}$
+        4. $\bar{\rho}_{AR,i}$
+        5. $\bar{\rho}_{RR,i}$
+        6. Surgical outcome (seizure-free=1; non-seizure-free=2)
+        7. Center (MNI=1; CHUGA=2)
+           
+- ```SPMap_features.mat``` contains the results of the rSP framework  
+    - ```feature``` 76x5 cell array containing the following data for all patients:
+        1. Mean of positive perturbation strengths in Quadrant 1
+        2. Mean of positive perturbation strengths in Quadrant 2
+        3. Mean of positive perturbation strengths in Quadrant 4  
+        4. Surgical outcome (seizure-free=1; non-seizure-free=2)  
+        5. Center (MNI=1; CHUGA=2)
+    - ```covariates``` contains the following clinical covariates
+        1. SOZ volume
+        2. Resected volume
+        3. Resected SOZ volume
+        4. Percent SOZ removed
+        5. Patient has a complete resection as marked by a clinician (complete resection=1, incomplete=0) 
+
+Simply press _run_ on any of the scripts and it should work on it's shown. You will need to change a couple variables to produce center specific results (found at the beginning of each script).  
+
+## Expected output
+When running ```vSP_demo.m```, you should expect the following results when choosing ```patient_number=1``` (i.e., P4)  
+<p align="center">
+  <img width="75%" src="figures/vSP_output_P4.png"/>
+</p> 
+Which illustrates the constructed spatial system before virtual removal of the SOZ (left), and the perturbed spatial system after virtually removing the SOZ (right).  
+
+Running the demo script ```rSP_demo.m``` will produce the SP maps for one of the two patient. The algorithm outputs the following for ```patient_number = 1``` (left), and ```patient_number = 2``` (right)
+
+<p align="center" float="left">
+  <img width="45%" src="figures/rSP_output_P4.png" />
+  <img width="45%" src="figures/rSP_output_P58.png"/>
+</p>  
+
+When illustrates the spatial ranking of each channel's perturbation strength.
