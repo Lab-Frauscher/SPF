@@ -108,8 +108,9 @@ if rates > 1 % Only continue if there are sufficient IED-gammas
         coordinates_rr = coordinates(rand_indices,:);
     
         % Computing spatial reference
-        [~,ii] = max(feature_rr(sozIdx,:),[],1);  
-        varphi_sr_rr = sozIdx(ii)';
+        sozIdx_rr = find(soz(rand_indices));
+        [~,ii] = max(feature_rr(sozIdx_rr,:),[],1);  
+        varphi_sr_rr = sozIdx_rr(ii)';
         
         x = pdist2(coordinates_rr,coordinates_rr(varphi_sr_rr,:));
         y = feature_rr;
