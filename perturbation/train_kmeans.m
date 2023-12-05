@@ -16,6 +16,13 @@ function centroid = train_kmeans(features,labels,nBoot,ratio)
 %   where N is the number of channels, and M is the number of
 %   observations. 
 %
+%   INPUTS:     features    Px3 vector (P observations, three dimensions)
+%               labels      Px1 vector of surgical outcomes (1=seizure-free, 2=non-seizure-free)
+%               nBoot       1x1 integer on the number of bootstrapped samples for training
+%               ratio       1x1 double ranging from 0 to 1 used to specify
+%               the ratio of seizure-free and non-seizure-free patients to randomly-sample
+%   OUTPUTS:    centroid    2x3 vector of centroids (two centroids)
+%
 %   See also computeSPMap and computeCorrelation.
 
 % Selecting the seizure-free and non-seizure-free patients

@@ -2,13 +2,21 @@ function [rho,logData,pval] = computeCorrelation(data)
 % computeCorrelation  Characterizes a given spatial system as defined by
 % a power law function y=ax^k as described in the original manuscript. 
 %
-%   [rho,logData,pval] = computeCorrelation(data) takes as input an NxL 
-%   double array with N channels and L samples. The function returns rho 
-%   which is the Pearson's correlation in the log-log space, and the 
-%   corresponding pvalue. For visualization purposes, logData is also 
-%   returned, which is the log-log transformation applied to data.
+%   [rho,logData,pval] = computeCorrelation(data) takes as input an Nx2 
+%   vector containing the features and distances for each channel. The 
+%   function returns rho which is the Pearson's correlation in the log-log
+%   space, and the corresponding pvalue. For visualization purposes, 
+%   logData is also returned, which is the log-log transformation applied 
+%   to data.
+%   
+%   INPUTS:     data    Nx2 vector (N channels)
+%   OUTPUTS:    rho     1x1 double of Pearon's correlation of data
+%               logData Mx2 vector of logarithmic transformation on data
+%               pval    1x1 double of the p-values corresponding to rho
 %
 %   See also computeSPMap and virtualRemovalSP.
+
+        % Unpacking data
         x = data(:,1);
         y = data(:,2); 
         

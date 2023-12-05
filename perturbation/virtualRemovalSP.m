@@ -24,10 +24,21 @@ function [rhos,pvals,spatial_system,flag] = virtualRemovalSP(feature,coordinates
 %   - spatial_system{2,2} is the spatial system in the log-log space
 %   (after removal)
 %
+%   INPUTS:     feature             Nx1 vector  (N channels)
+%               coordinates         Nx3 vector  (three dimensions)
+%               soz                 Nx1 boolean vector indicating whether a given channel belongs to the SOZ        
+%   OUTPUTS:    rhos                3x1 vector of Pearson's correlations applied to the spatial system
+%                                       - before removal of the SOZ
+%                                       - after removal of the SOZ
+%                                       - random removal of non-SOZ channels
+%               pvals               3x1 vector of p-values corresponding to rho
+%               spatial_system      2x2 cell array of spatial systems before and after virtually removing the SOZ
+%               flag                1x1 boolean indicating whether the segment should be used
+%
 %   See also computeCorrelation and computeSPMap.
 
 % Initializing outputs
-rhos = []; pvals = []; logData = {[]}; flag = 0;
+rhos = []; pvals = []; logData = {[]}; flag = false;
 %% Step 1: Constructing and characterizing spatial system
 % The spatial system is constructing by coupling channel-level features
 % with their distances to a spatial reference (defined as the channel with 
@@ -123,5 +134,5 @@ if rates > 1 % Only continue if there are sufficient IED-gammas
     pvals = [pval_br;pval_ar;pval_rr];
 else
     % Flag set to 1 to indicate that the segment should not be included
-    flag = 1;
+    flag = true;
 end
