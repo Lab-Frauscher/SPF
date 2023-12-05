@@ -109,7 +109,17 @@ demo_data
 - ```spike_gamma_rates```: Nx6 double array of IED-gamma rates computed for each channel in six segments of the one hour interictal data 
 
 ## Running the SP framework on your own data
-The following are the steps one should take to apply this framework 
+The main code of interest for the user to apply the framework can be found in the following subdirectory
+```bash
+perturbation
+├── computeCorrelation.m
+├── computeSPMap.m
+├── train_kmeans.m
+└── virtualRemovalSP.m
+```
+Which contains functions to apply the virtual-removal spatial perturbation framework (```virtualRemovalSP.m```), the ranked spatial perturbation framework (```computeSPMap.m```), and train your own unsupervised model (```train_kmeans.m```). 
+
+If you wish to apply our method on your data, please consider the following steps: 
 1. Extract the segment of interest from available SEEG data
 2. Apply the bipolar montage on the signal
 3. Preprocess the data with a notch filter and bandpass filter
