@@ -150,7 +150,7 @@ results_figures
 
 The folder **sp_results** contains the results of the framework applied  on all the patients in our dataset  
 - ```virtual_removal_perturbation.mat``` contains the results of virtual removal SP framework.  
-    - ```data_sf```: 76x6 cell array containing the following data for all patients  
+    - ```data```: 76x6 cell array containing the following data for all patients  
         1. Patient index (e.g., P4)
         2. MRI positive/negative
         3. $\bar{\rho}_{BR,i}$
