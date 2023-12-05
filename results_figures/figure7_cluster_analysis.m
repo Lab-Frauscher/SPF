@@ -30,7 +30,7 @@ load('SPMap_features.mat');
 
 center_names = ["MNI";"CHUGA"];
 % Specify center (1=MNI,2=CHUGA)
-% center = 1; % Uncomment if running directly this script
+center = 1; %r Uncomment if running directly this script
 
 % Specify training (=1) or testing (=0)
 train = center == 1; % MNI is training
@@ -56,12 +56,13 @@ X_c = X(cutoff,:);
 label_c = label(cutoff);
 cov_c = cov(cutoff,:);
 %% K-means algorithm with bootstrapping
-% Estimating robust cluster centroids by bootstrapping MNI data 
+% Paramters used for unsupervised clustering
 nBoot = 1000;
 ratio = 0.75;
 
 rng('default')
 if train == 1
+    % Estimating robust cluster centroids by bootstrapping MNI data 
     centroid = train_kmeans(X,label,nBoot,ratio);
 else % if training option is not chosen, use the centroid estimated using MNI (center=1)
     centroid = [0.3319    0.1137    0.0696;
