@@ -111,7 +111,10 @@ gr(1,1).set_names('x', 'distance to spatial ref (mm)', 'y', "IED-\gamma rates mi
 gr(1,1).set_text_options('interpreter', 'tex','base_size',30);
 gr(1,1).no_legend();
 
-gr(2,1) = gramm('x', data{1,2}(:,1), 'y', data{1,2}(:,2), 'color', soz(2:end)==0);
+[~,ii]=max(feature(soz==1));
+sozIdx = find(soz==1);
+soz(sozIdx(ii))=[];
+gr(2,1) = gramm('x', data{1,2}(:,1), 'y', data{1,2}(:,2), 'color', soz==0);
 gr(2,1).geom_point('alpha',0.7);
 gr(2,1).set_point_options("base_size",10);
 gr(2,1).set_names('x', 'distance to spatial ref (mm)', 'y', "IED-\gamma rates min^{-1}");
