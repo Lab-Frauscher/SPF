@@ -30,7 +30,7 @@ load('SPMap_features.mat');
 
 center_names = ["MNI";"CHUGA"];
 % Specify center (1=MNI,2=CHUGA)
-center = 1; %r Uncomment if running directly this script
+% center = 1; %r Uncomment if running directly this script
 
 % Specify training (=1) or testing (=0)
 train = center == 1; % MNI is training
