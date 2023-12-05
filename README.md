@@ -16,8 +16,6 @@
 .
 ├── LICENSE
 ├── README.md
-├── analysis
-│   └── feature_selection.m
 ├── demo_data
 │   ├── P4_sample.mat
 │   ├── P58_sample.mat
