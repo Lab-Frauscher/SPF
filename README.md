@@ -16,8 +16,6 @@
 .
 ├── LICENSE
 ├── README.md
-├── analysis
-│   └── feature_selection.m
 ├── demo_data
 │   ├── P4_sample.mat
 │   ├── P58_sample.mat
@@ -73,7 +71,7 @@ Download the repository into your local computer using the following command
 ```bash 
 git clone https://github.com/KassemJaber/Spatial-Perturbation-Framework.git
 ```
-Install each prerequisite on MATLAB R2023a by navigating to Home->Add-ons->Get Add-ons. Type in the name of each respective toolbox in the search bar and install.
+Install each prerequisite by first opening MATLAB R2023a, navigate to Home->Add-ons->Get Add-ons. Type in the name of each respective toolbox in the search bar and install.
 
 Typical install time: 2 hours
 
@@ -150,7 +148,7 @@ results_figures
 
 The folder **sp_results** contains the results of the framework applied  on all the patients in our dataset  
 - ```virtual_removal_perturbation.mat``` contains the results of virtual removal SP framework.  
-    - ```data_sf```: 76x6 cell array containing the following data for all patients  
+    - ```data```: 76x6 cell array containing the following data for all patients  
         1. Patient index (e.g., P4)
         2. MRI positive/negative
         3. $\bar{\rho}_{BR,i}$
