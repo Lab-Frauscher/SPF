@@ -6,8 +6,10 @@
   * [Installation](#installation)
   * [Expected runtime](#expected-runtime)
   * [Getting started](#getting-started)
+  * [Running the SP framework on your own data](#running-the-SP-framework-on-your-own-data)
   * [Reproducing results](#reproducing-results)
   * [Expected output](#expected-output)
+  * [References](#references)
 
 ## Folders
 ```bash
