@@ -107,7 +107,16 @@ demo_data
 - ```spike_gamma_rates```: Nx6 double array of IED-gamma rates computed for each channel in six segments of the one hour interictal data 
 
 ## Running the SP framework on your own data
-
+The following are the steps one should take to apply this framework 
+1. Extract the segment of interest from available SEEG data
+2. Apply the bipolar montage on the signal
+3. Preprocess the data with a notch filter and bandpass filter
+4. Remove extracerebral white matter and artifact channels
+5. Apply Janca detector (Janca et al., 2015) to detect interictal epileptiform discharges in the SEEG (see ```spike_detector_hilbert_v25.m```)
+6. Apply postprocessing code (see ```postprocessing_v2.m```) to remove false detections due to artifacts and spindles
+7. Run the spike-gamma code (Thomas et al., 2023) to determine if each IED has signficiant gamma activity preceding its onset (see ```computeSpikeGamma.m```)
+9. Run the spatial perturbation framework! (see ```virtualRemovalSP.m``` and ```computeSPMap.m```)
+    
 ## Reproducing results
 
 ```results_pipeline.m``` runs all the scripts to produce all the results in the manuscript.
