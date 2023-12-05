@@ -176,7 +176,7 @@ Simply press _run_ on any of the scripts and it should work on it's shown. You w
 ## Expected output
 When running ```vSP_demo.m```, you should expect the following results when choosing ```patient_number=1``` (i.e., P4)  
 <p align="center">
-  <img width="75%" src="figures/vSP_output_P4.png"/>
+  <img width="45%" src="figures/vSP_output_P4.png"/>
 </p> 
 Which illustrates the constructed spatial system before virtual removal of the SOZ (left), and the perturbed spatial system after virtually removing the SOZ (right).  
 
