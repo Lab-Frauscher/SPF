@@ -70,7 +70,7 @@ if rates > 1 % Only continue if there are sufficient IED-gammas
     coordinates_nsoz = coordinates(soz==0,:);
     
     % Computing spatial reference
-    [~,varphi_sr_nsoz] = max(feature_nez(sozIdx,:),[],1);  
+    [~,varphi_sr_nsoz] = max(feature_nez,[],1);  
     
     x = pdist2(coordinates_nsoz,coordinates_nsoz(varphi_sr_nsoz,:));
     y = feature_nez;
