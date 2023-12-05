@@ -71,6 +71,8 @@ Download the repository into your local computer using the following command
 ```bash 
 git clone https://github.com/KassemJaber/Spatial-Perturbation-Framework.git
 ```
+Install each prerequisite on MATLAB R2023a by navigating to Home->Add-ons->Get Add-ons. Type in the name of each respective toolbox in the search bar and install.
+
 Typical install time: 2 hours
 
 ## Expected runtime
