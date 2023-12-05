@@ -14,7 +14,7 @@ function [rhos,pvals,spatial_system,flag] = virtualRemovalSP(feature,coordinates
 %   second output argument as a 3x1 double array. For visualization 
 %   purposes, the function also returns the spatial system before after 
 %   virtually removing the SOZ as a 2x2 cell array. Each cell is an Nx2 
-%   double array  
+%   vector
 %   - spatial_system{1,1} contains distances and feature values before 
 %   removal of the SOZ
 %   - spatial_system{1,2} is the spatial system in the log-log space
@@ -127,8 +127,8 @@ if rates > 1 % Only continue if there are sufficient IED-gammas
         pval_rr = [pval_rr; pval_rr_tmp(~lowRates)];
     end
     %Computing median over bootsraps
-    rho_rr = mean(rho_rr);
-    pval_rr = mean(pval_rr);
+    rho_rr = median(rho_rr);
+    pval_rr = median(pval_rr);
 
     % Saving results to output
     rhos = [rho_br;rho_ar;rho_rr];
