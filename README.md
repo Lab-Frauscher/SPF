@@ -63,7 +63,7 @@
     - 'Signal Processing Toolbox'
     - 'Statistics and Machine Learning Toolbox'
     - 'Wavelet Toolbox'
-    - 'gramm': https://github.com/piermorel/gramm
+    - 'gramm' (Morel, 2018)
 - Windows, macOS, or Linux operating system
 
 ## Installation
@@ -193,3 +193,4 @@ Which illustrates the spatial ranking of each channel's perturbation strength.
 * Janca, R., Jezdik, P., Cmejla, R. et al. Detection of Interictal Epileptiform Discharges Using Signal Envelope Distribution Modelling: Application to Epileptic and Non-Epileptic Intracranial Recordings. Brain Topogr 28, 172–183 (2015). https://doi.org/10.1007/s10548-014-0379-1
 * Thomas, J., Kahane, P., Abdallah, C., Avigdor, T., Zweiphenning, W.J.E.M., Chabardes, S., Jaber, K., Latreille, V., Minotti, L., Hall, J., Dubeau, F., Gotman, J. and Frauscher, B. (2023), A Subpopulation of Spikes Predicts Successful Epilepsy Surgery Outcome. Ann Neurol, 93: 522-535. https://doi.org/10.1002/ana.26548
 * Zelmann R, Frauscher B, Aro RP, Gueziri HE, Collins DL. SEEGAtlas: A framework for the identification and classification of depth electrodes using clinical images. J Neural Eng. 2023 May 31;20(3). doi: 10.1088/1741-2552/acd6bd. PMID: 37201515.
+* Morel, (2018). Gramm: grammar of graphics plotting in Matlab. Journal of Open Source Software, 3(23), 568, https://doi.org/10.21105/joss.00568
