@@ -124,7 +124,7 @@ gr(2,1).no_legend();
 gr(1,2) = gramm('x', data{2,1}(:,1), 'y', data{2,1}(:,2));
 gr(1,2).geom_point('alpha',0.7);
 gr(1,2).set_point_options("base_size",10);
-gr(1,2).set_names('x', 'distance to spatial ref', 'y', "IED-\gamma rates");
+gr(1,2).set_names('x', 'distance to spatial ref (mm)', 'y', "IED-\gamma rates min^{-1}");
 gr(1,2).set_text_options('interpreter', 'tex','base_size',30);
 gr(1,2).set_color_options('map',[76 208 225]/255,'n_color',1,'n_lightness',1);
 gr(1,2).no_legend();
