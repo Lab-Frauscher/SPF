@@ -1,4 +1,21 @@
 function g = plotFeatureSpace(X,label,centroid)
+% plotFeatureSpace produces a scatter plot of the feature space with the 
+% parameters used to figure 7 in the manuscript. 
+%
+%   g = plotFeatureSpace(X,label,centroid) takes as input
+%   an Nx3 vector containing the features and an Nx1 vector containing the
+%   labels (ie., surgical outcome) for each observation (i.e., patient). 
+%   The centroid estimated using clustering techniques is also taken as input 
+%   for visualization purposes. The function returns the gramm plot handle
+%   
+%   INPUTS:     X           Nx1 feature vector (N observations)
+%               label       Nx1 feature vector (N observations)
+%               centroid    Kx3 centroid vector (K clusters)
+%
+%   OUTPUTS:    g           struct containing the gramm plot handle
+%
+%   See also boxplot_gramm and scatter_gram.
+
     figure;
     clear g
     
