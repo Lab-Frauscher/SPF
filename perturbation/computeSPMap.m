@@ -68,7 +68,7 @@ function [spMap,XBinned,yBinned,spMap_features,probability_sampled] = computeSPM
     high = prctile(pStrength,70); 
     coord_roi = coordinates(pStrength>=high,:);
    
-    % Compute centrroid of region with high perturbation strength
+    % Compute centroid of region with high perturbation strength
     varphi_ps = mean(coord_roi,1);
     
     %% Step 3: Spatial ranking (second-step perturbation)
@@ -124,7 +124,7 @@ function [spMap,XBinned,yBinned,spMap_features,probability_sampled] = computeSPM
 
     spMap_features(isnan(spMap_features)) = 0;
     %% Step 5: Applying probability model to SP map feature space
-    % Lastly, the probability model is applied to the extracted feautres 
+    % Lastly, the probability model is applied to the extracted features 
     % indicating how well the SOZ was implanted by the SEEG
 
     % Centroids that were estimated from the training data (MNI)
