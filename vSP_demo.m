@@ -7,7 +7,7 @@
 % code previously developed in our lab [2,3]. Extracerebral and artifact 
 % channels are subsequently removed before applying the virtual-removal SP
 % framework. Then finally, the scatter plots are visualized to demonstrate
-% the perturbation of the spatial system after virtually removing the SOZ
+% the perturbation of the spatial system after virtually removing the SOZ.
 %
 % References:
 % [1] Janca, R., Jezdik, P., Cmejla, R. et al. Detection of Interictal 
@@ -69,7 +69,7 @@ IED_gamma = computeSpikeGamma(data_bp,fs,out_pp,1); % Compute IED-gamma rates [2
 % subsequent analysis
 
 % Specifying the feature vector and the coordinates for each feature
-feature = IED_gamma;    % Can replace with patient.spike_gamma_rates for results from the complete patient data
+feature = IED_gamma;    % Can replace with patient.spike_gamma_rates for results from all patients
 coordinates = patient.MNI;
 
 % Extracting 'bad' channel markings (i.e., extracerebral, white matter and
@@ -98,7 +98,7 @@ rho_rr = rhos(3);
 disp([[{'rho_BR'}, {'rho_AR'}, {'rho_RR'}]; num2cell([rho_br rho_ar rho_rr])])
 
 % Computing perturbation strength
-pStrength = log(2 + abs(rho_br)/(abs(rho_ar)+1e-3)); % The stronger the perturbation, the better the implanted SOZ
+pStrength = log(2 + abs(rho_br)/(abs(rho_ar)+1e-3)); % The stronger the perturbation, the better the implantation
 disp([{'Perturbation strength'} pStrength]);
 
 %% Step 5: Visualizing results

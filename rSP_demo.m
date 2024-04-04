@@ -1,13 +1,13 @@
 % Example end-to-end pipeline of extracting data, preprocessing,
 % feature extraction and spatial perturbation. The first part of the script
-% reads in five minutes of MNI SEEG data that was downsampled to 200Hz due 
+% reads five minutes of MNI SEEG data that was downsampled to 200Hz due 
 % to file size limitations. The data is notch filtered, and the Janca 
 % detector [1] is used to detect IEDs in the SEEG signal. Then IED will be
 % classified as having significant gamma activity preceding the IED using
 % code previously developed in our lab [2,3]. Extracerebral and artifact 
-% channels are subsequently removed before applying the virtual-removal SP
-% framework. Then finally, the rSP framework is applied to the data,
-% constructing the SP map. The SP map for the patient is plotted for 
+% channels are subsequently removed before applying the ranked SP
+% framework. Finally, the rSP framework is applied to the data, which 
+% constructs the SP map. The SP map for the patient is plotted for 
 % illustration purposes. 
 %
 % References:
@@ -82,11 +82,11 @@ invalid_indices = find(soz > 1);
 feature(invalid_indices,:) = [];
 coordinates(invalid_indices,:) = [];
 %% Step 4: Apply ranked spatial perturbation framework 
-% We can finally apply the rSP framework on the defined features and
-% channel coordinates. The result of the the rSP framework is the spatial
-% perturbation map, which we hypothesize can assess quality of the
+% We can finally apply the rSP framework on the features and channel
+% coordinates. The result of the the rSP framework is the spatial
+% perturbation map, which we hypothesized can assess quality of the
 % implantation of the SOZ. The function also extracts the features
-% mentioned in the manuscript froms quadrants 1,2, and 4, and the
+% mentioned in the manuscript from quadrants 1,2, and 4, and the
 % probability model is applied to the features, giving the likelihood that
 % the SOZ was well sampled.
 

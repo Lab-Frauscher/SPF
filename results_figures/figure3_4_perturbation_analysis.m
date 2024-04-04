@@ -1,6 +1,6 @@
 % This script analyzes the result of the vSP framework which was applied
-% on all patients from the MNI and CHUGA. The results are found in the 
-% variable virtual_removal_perturbation.mat  
+% on all patients from the MNI and CHUGA. The results are found in 
+% virtual_removal_perturbation.mat  
 addpath('functions');
 addpath('demo_data')
 addpath('perturbation')
@@ -133,7 +133,7 @@ rho_ar = [rho{1}(:,2); rho{2}(:,2)];
 
 % Computing perturbation strength
 nu = 2;
-rho_hat = log(nu + abs(rho_br)./(abs(rho_ar)+1e-3)); % Added 1e-3 incase denominator is zero
+rho_hat = log(nu + abs(rho_br)./(abs(rho_ar)+1e-3)); % Added 1e-3 in case denominator is zero
 g = [ones(N1,1); 2*ones(N2,1)];
 
 red =  [255 94 105]/255;

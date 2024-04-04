@@ -8,13 +8,13 @@
 %
 % The next part of the script produces a probability model using distances
 % from each patient in the feature space to both centroids. The sample
-% standard deviation and means are computed and used to calcalate the
+% standard deviation and means are computed and used to calculate the
 % probability that the patient is in the good sampling cluster, and is not
 % in the poor sampling cluster. Results are shown for the classification
 % performance of the k-means clustering algorithm, and the probability
 % model.
 %
-% The final part of the script will apply the trained model after applying
+% The final part of the script will evaluate the trained model after applying
 % a correction on the resected SOZ volume. Only patients with a 
 % sufficiently large resected SOZ volume were considered to have complete 
 % resections of the SOZ.
@@ -30,7 +30,7 @@ load('SPMap_features.mat');
 
 center_names = ["MNI";"CHUGA"];
 % Specify center (1=MNI,2=CHUGA)
-% center = 1; %r Uncomment if running directly this script
+% center = 1; % Uncomment if running directly this script
 
 % Specify training (=1) or testing (=0)
 train = center == 1; % MNI is training
@@ -39,7 +39,7 @@ centers = features(:,end);
 label = features(centers == center,5);
 % Q1,Q2,Q4 were found to be the optimal combination
 X = features(centers == center,[1 2 4]); 
-% Column 1: SOZ Volume; Column 2: Resection Volume, Column 3: Resected SOZ Volume, Column 4: Percent SOZ removed; Column 5: Palliative];
+% Column 1: SOZ Volume; Column 2: Resection Volume, Column 3: Resected SOZ Volume, Column 4: Percent SOZ removed; Column 5: Palliative;
 cov = covariates(centers == center,:); 
 
 %% Obtaining threshold on resected SOZ volume to correct for palliative surgeries
