@@ -48,7 +48,7 @@ bw = wo/500;
 [b,a] = butter(4, [0.3 70] * 2/fs, 'bandpass');
 
 % The default settings used for the spike detector
-settings = '-bl 10 -bh 60 -h 60 -jl 3.65 -dec 200';
+settings = '-bl 10 -bh 60 -h 60 -k1 3.65 -dec 200';
 
 % Zero-phase filtering 
 data = filtfilt(bn,an,data);
