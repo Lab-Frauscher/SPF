@@ -148,7 +148,7 @@ results_figures
 
 The folder **sp_results** contains the results of the framework applied  on all the patients in our dataset  
 - ```virtual_removal_perturbation.mat``` contains the results of virtual removal SP framework.  
-    - ```data```: 76x6 cell array containing the following data for all patients  
+    - ```data```: 76x7 cell array containing the following data for all patients  
         1. Patient index (e.g., P4)
         2. MRI positive/negative
         3. $\bar{\rho}_{BR,i}$
@@ -158,12 +158,13 @@ The folder **sp_results** contains the results of the framework applied  on all 
         7. Center (MNI=1; CHUGA=2)
            
 - ```SPMap_features.mat``` contains the results of the rSP framework  
-    - ```feature``` 76x5 cell array containing the following data for all patients:
+    - ```feature``` 76x6 cell array containing the following data for all patients:
         1. Mean of positive perturbation strengths in Quadrant 1
         2. Mean of positive perturbation strengths in Quadrant 2
-        3. Mean of positive perturbation strengths in Quadrant 4  
-        4. Surgical outcome (seizure-free=1; non-seizure-free=2)  
-        5. Center (MNI=1; CHUGA=2)
+        3. Mean of positive perturbation strengths in Quadrant 3
+        4. Mean of positive perturbation strengths in Quadrant 4  
+        5. Surgical outcome (seizure-free=1; non-seizure-free=2)  
+        6. Center (MNI=1; CHUGA=2)
     - ```covariates``` contains the following clinical covariates
         1. SOZ volume
         2. Resected volume
