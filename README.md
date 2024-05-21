@@ -69,7 +69,7 @@
 ## Installation
 Download the repository into your local computer using the following command  
 ```bash 
-git clone https://github.com/KassemJaber/Spatial-Perturbation-Framework.git
+git clone [https://github.com/KassemJaber/Spatial-Perturbation-Framework.git](https://github.com/Lab-Frauscher/SPF.git)
 ```
 Install each prerequisite by first opening MATLAB R2023a, navigate to Home->Add-ons->Get Add-ons. Type in the name of each respective toolbox in the search bar and install.
 
